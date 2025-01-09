@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 import {
   getLikedVideos,
   toggleCommentLike,
@@ -9,9 +9,9 @@ import {
 
 const router = Router();
 
-router.route("/toggle-like-v/:videoId").post(verifyJwt, toggleVideoLike);
-router.route("/toggle-like-c/:commentId").post(verifyJwt, toggleCommentLike);
-router.route("/toggle-like-t/:tweetId").post(verifyJwt, toggleTweetLike);
-router.route("/get-liked-v").post(verifyJwt, getLikedVideos);
+router.route("/toggle-like-v/:videoId").post(verifyJWT, toggleVideoLike);
+router.route("/toggle-like-c/:commentId").post(verifyJWT, toggleCommentLike);
+router.route("/toggle-like-t/:tweetId").post(verifyJWT, toggleTweetLike);
+router.route("/get-liked-v").post(verifyJWT, getLikedVideos);
 
 export default router;

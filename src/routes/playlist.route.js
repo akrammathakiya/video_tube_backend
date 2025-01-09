@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 import {
   addVideoToPlaylist,
   createPlaylist,
@@ -12,18 +12,18 @@ import {
 
 const router = Router();
 
-router.route("/create-playlist").post(verifyJwt, createPlaylist);
-router.route("/get-user-playlist/:userId").post(verifyJwt, getUserPlaylists);
+router.route("/create-playlist").post(verifyJWT, createPlaylist);
+router.route("/get-user-playlist/:userId").post(verifyJWT, getUserPlaylists);
 router
   .route("/get-playlist-by-id/:playlistId")
-  .post(verifyJwt, getPlaylistById);
+  .post(verifyJWT, getPlaylistById);
 router
   .route("/add-v-to-playlist/:playlistId/:videoId")
   .post(addVideoToPlaylist);
 router
   .route("/remove-v-from-playlist/:playlistId/:videoId")
-  .post(verifyJwt, removeVideoFromPlaylist);
-router.route("delete-playlist").delete(verifyJwt, deletePlaylist);
-router.route("update-playlist/:playlistId").patch(verifyJwt, updatePlaylist);
+  .post(verifyJWT, removeVideoFromPlaylist);
+router.route("delete-playlist").delete(verifyJWT, deletePlaylist);
+router.route("update-playlist/:playlistId").patch(verifyJWT, updatePlaylist);
 
 export default router;

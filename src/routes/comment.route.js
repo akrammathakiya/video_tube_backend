@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 import {
   addComment,
   deleteComment,
@@ -8,9 +8,9 @@ import {
 } from "../controllers/comment.controller.js";
 const router = Router();
 
-router.route("/video-comments").post(verifyJwt, getVideoComments);
-router.route("/add-comment").post(verifyJwt, addComment);
-router.route("update-comment").patch(verifyJwt, updateComment);
-router.route("delete-comment").delete(verifyJwt, deleteComment);
+router.route("/video-comments").post(verifyJWT, getVideoComments);
+router.route("/add-comment").post(verifyJWT, addComment);
+router.route("update-comment").patch(verifyJWT, updateComment);
+router.route("delete-comment").delete(verifyJWT, deleteComment);
 
 export default router;

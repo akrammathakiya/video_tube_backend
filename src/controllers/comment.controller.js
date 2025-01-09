@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Comment } from "../models/comment.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiErrors } from "../utils/apiErrors.js";
+import { ApiErrors } from "../utils/ApiErrors.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Like } from "../models/like.model.js";
 
